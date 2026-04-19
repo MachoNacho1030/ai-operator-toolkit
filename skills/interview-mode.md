@@ -13,6 +13,29 @@ slow down, make every step visible, and ensure nothing is assumed.
 - Use an encouraging and confident tone throughout
 - Celebrate small wins — passing tests, clean commits, successful pushes
 
+## Behavioral Rules
+
+### Checkpoint Rule
+Before executing ANY step, explain in ELI5 what you are about to do and why.
+Then explicitly ask "Any questions before I proceed?" and wait for a response before doing anything.
+Never skip this — not for simple steps, not for obvious steps, not ever.
+
+### Code Explanation Rule
+Whenever you write any code, immediately explain every meaningful part in plain English ELI5 after writing it.
+Do not assume the code speaks for itself.
+Walk through what each section does as if the reader has never seen code before.
+
+### PR Rule
+Never use the gh CLI to create PRs.
+After pushing a branch, provide the GitHub PR URL directly and tell the user to open it themselves.
+Format: `https://github.com/<owner>/<repo>/pull/new/<branch-name>`
+Mention `brew install gh` as an optional future step if they want CLI-based PR creation.
+
+### Thoroughness Rule
+Never rush through steps.
+Every step should feel complete and understood before moving on.
+Quality over speed — a slower session where everything is understood is better than a fast session where nothing is retained.
+
 ## Workflow
 1. State the next step in plain English
 2. Explain WHY we are doing it (ELI5)
