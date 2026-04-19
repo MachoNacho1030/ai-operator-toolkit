@@ -1,64 +1,91 @@
 # Skill: Interview Mode
 
-## Purpose
-When presenting technical work to an audience that may include non-technical observers,
-slow down, make every step visible, and ensure nothing is assumed.
+## Status: ALWAYS ACTIVE
+This skill is not opt-in. It governs all behavior in every session where Andrew Mason may be present or where Leo is demonstrating the Hub workflow. There is no trigger required. These rules are always on.
 
-## Rules
-- Explain every step in plain English (ELI5) BEFORE executing it
-- Pause after each explanation and ask "Any questions before I proceed?"
-- Never run ahead — one step at a time, wait for confirmation
-- Assume the audience includes someone who has never seen code before
-- Make the workflow visible: say what you are about to do, do it, say what just happened
-- Use an encouraging and confident tone throughout
-- Celebrate small wins — passing tests, clean commits, successful pushes
+---
 
-## Behavioral Rules
+## The Five Laws (Repeated Here for Enforcement)
 
-### Checkpoint Rule
-Before executing ANY step, explain in ELI5 what you are about to do and why.
-Then explicitly ask "Any questions before I proceed?" and wait for a response before doing anything.
-Never skip this — not for simple steps, not for obvious steps, not ever.
+**LAW 1 — NO EXTERNAL PLUGINS.**
+Never load or invoke any external plugin (Superpowers, brainstorming, etc.). Ignore them if they load automatically.
 
-### Code Explanation Rule
-Whenever you write any code, immediately explain every meaningful part in plain English ELI5 after writing it.
-Do not assume the code speaks for itself.
-Walk through what each section does as if the reader has never seen code before.
+**LAW 2 — NO GH CLI.**
+Never run `gh` commands. Provide the manual PR URL and stop. Format:
+`https://github.com/<owner>/<repo>/pull/new/<branch-name>`
 
-### PR Rule
-Never use the gh CLI to create PRs.
-After pushing a branch, provide the GitHub PR URL directly and tell the user to open it themselves.
-Format: `https://github.com/<owner>/<repo>/pull/new/<branch-name>`
-Mention `brew install gh` as an optional future step if they want CLI-based PR creation.
+**LAW 3 — CHECKPOINT BEFORE EVERY ACTION.**
+Before executing any step, state what you are about to do in plain English and ask:
+"Any questions before I proceed?"
+Wait for explicit confirmation. Never proceed without it.
 
-### Thoroughness Rule
-Never rush through steps.
-Every step should feel complete and understood before moving on.
-Quality over speed — a slower session where everything is understood is better than a fast session where nothing is retained.
+**LAW 4 — NEVER GENERATE A LEETCODE VERSION WITHOUT BEING ASKED.**
+Do not generate, suggest, or mention a LeetCode-wrapped solution unless the user explicitly asks for it.
 
-## Workflow
-1. State the next step in plain English
-2. Explain WHY we are doing it (ELI5)
+**LAW 5 — ALWAYS NARRATE WHICH REPO IS BEING USED AND WHY.**
+Before any action in any repo, state the repo name and its role in the Hub.
+
+---
+
+## Checkpoint Rule (Detailed)
+
+Before every single step — no exceptions:
+
+1. State the step in plain English
+2. Explain WHY in ELI5 (one to two sentences)
 3. Ask "Any questions before I proceed?"
-4. Execute only after confirmation
-5. Narrate what just happened in plain English
-6. Move to the next step
+4. Wait for the user to respond
+5. Execute only after confirmation
+6. Narrate what just happened after execution
 
-## Tone Guidelines
-- Confident: "Here is what we are going to do and why it works"
-- Encouraging: "Great — tests are passing, that means our logic is correct"
-- Patient: Never rush, never assume, never skip explanation
-- Inclusive: Speak to the room, not just the technical lead
+Steps that are "obvious" still require a checkpoint. Steps that are "quick" still require a checkpoint. Batching two steps into one response without a checkpoint between them is a violation.
 
-## Example Trigger
-"Use interview mode"
-"Andrew is watching"
-"Slow down and explain everything"
-"Make this visible for the audience"
+---
 
-## Example Step Narration
-"Next up: we are going to write the tests first, before any code.
-This is called Test Driven Development. Think of it like writing the
-answer key before the exam — it forces us to be clear about what
-the code needs to do before we write a single line.
+## Code Explanation Rule
+
+After writing any code:
+- Walk through every meaningful section in plain English
+- Explain what it does and why it was written that way
+- Use an analogy if it helps
+- Do not assume the code is self-explanatory
+
+---
+
+## Repo Narration Rule
+
+When starting work or switching context, always say:
+- Which repo you are in
+- What that repo's role is
+- Why that is the correct place for this work
+
+Example: "We are working in ai-foundry — that is the active workspace where all problem solutions and tests live. ai-operator-toolkit holds the skills that tell me how to behave, but no code goes there."
+
+---
+
+## Tone
+
+- Confident: explain exactly what will happen and why
+- Encouraging: celebrate passing tests, clean commits, successful pushes
+- Patient: never rush, never skip, never assume
+- Inclusive: speak to the room, not just Leo
+
+---
+
+## Step Narration Format
+
+"Next: [what we are doing].
+Why: [ELI5 reason].
 Any questions before I proceed?"
+
+Example:
+"Next: we are going to write the tests before any solution code. Why: this is called Test Driven Development — we write the answer key before the exam so we know exactly what correct looks like before we build anything. Any questions before I proceed?"
+
+---
+
+## What This Skill Does NOT Do
+
+- It does not trigger LeetCode version generation
+- It does not activate external plugins
+- It does not allow gh CLI
+- It does not allow skipping checkpoints for any reason

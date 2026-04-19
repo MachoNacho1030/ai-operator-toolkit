@@ -1,75 +1,54 @@
-# Claude Code Context
+# Claude Code Context — AI Operator Toolkit
 
-## Session Rules
-- Do NOT load any external plugins or skills automatically unless explicitly asked
-- The only skills to load are the ones in ai-operator-toolkit/skills/
-- Do not use superpowers brainstorming or any other external plugin
-- Follow the Hub workflow exactly as defined in this repo
-- No improvisation on process — stick to the defined workflow
+## The Five Laws (Read These First — They Override Everything)
+
+**LAW 1 — NO EXTERNAL PLUGINS.**
+Never load, invoke, or reference any external plugin or skill system (including Superpowers, brainstorming tools, or any plugin not in ai-operator-toolkit/skills/). If a plugin loads automatically, ignore it. Do not use it.
+
+**LAW 2 — NO GH CLI.**
+Never attempt `gh` commands. The `gh` CLI is not installed and will never be used. After pushing a branch, provide the manual PR URL in this exact format and stop:
+`https://github.com/<owner>/<repo>/pull/new/<branch-name>`
+
+**LAW 3 — CHECKPOINT BEFORE EVERY ACTION.**
+Before executing any step — including obvious ones — state what you are about to do in plain English and ask "Any questions before I proceed?" Wait for a response. Never skip this. Never batch multiple steps without checkpointing between them.
+
+**LAW 4 — NEVER GENERATE A LEETCODE VERSION WITHOUT BEING ASKED.**
+The local solution is the deliverable. A LeetCode-wrapped `Solution` class is a separate artifact that must be explicitly requested by the user. Do not generate it, suggest it, or mention it as a next step unless asked.
+
+**LAW 5 — ALWAYS NARRATE WHICH REPO IS BEING USED AND WHY.**
+Before referencing or acting on any repo in the Hub, state its name and its role. Example: "I am working in ai-foundry because that is where all problem solutions and tests live."
+
+---
 
 ## Purpose
-This file gives Claude Code the context it needs to work the way I want it to.
-Read this before doing anything in this repo.
+This repo (ai-operator-toolkit) holds the skills and context that govern how Claude Code behaves across the entire Hub. It does not contain solutions or tests — those live in ai-foundry.
 
 ## Who I Am
-I am an IT major and agentic developer who uses AI to design and ship reliable tested code at speed.
-I do not write code by hand — I architect systems, direct AI precisely, and verify output is correct.
+I am an IT major and agentic developer. I architect systems, direct AI precisely, and verify output. I do not write code by hand.
 
 ## How I Work
-- I use skill files in /skills to personalize how you behave
-- All code must follow TDD workflow — tests before implementation
-- All changes must follow the git workflow — clean branches and commits
-- When I ask for an explanation use ELI5 unless I say otherwise
-- Only work on files in this repo unless I explicitly say otherwise
-- Use the Superpowers plugin to enhance capabilities where available
+- Skills in /skills define all behavioral rules — load them, follow them exactly
+- All code follows TDD: tests before implementation, always
+- All changes follow the git workflow: clean branches, meaningful commits, manual PRs
+- All explanations are ELI5 unless I say otherwise
+- Work stays scoped to the active repo unless I explicitly say otherwise
 
 ## Active Skills
-- skills/explain-like-im-five.md — how to explain things to me
-- skills/tdd-workflow.md — how to write and verify code
-- skills/git-workflow.md — how to commit and branch
-
-## Rules
-- Never touch files outside this repo
-- Always write tests before implementation
-- Always explain what you are doing and why
-- If something is unclear ask me before assuming
-- Keep code simple and readable
-- Always leverage the Superpowers plugin for enhanced context and capabilities
+- skills/tdd-workflow.md — how to write and verify code (TDD, no auto-LeetCode)
+- skills/git-workflow.md — how to branch, commit, and handle PRs (no gh CLI)
+- skills/interview-mode.md — checkpoint and narration behavior (ALWAYS ACTIVE)
+- skills/explain-like-im-five.md — how to explain things
 
 ## Preferred Stack
 - Language: Python 3.12
 - Testing: pytest
 - Version Control: Git
 - Platform: Mac Terminal
-- Containerization: Docker (spin up local containers to view progress before deploying)
 
-## Local Development Workflow
-1. Write and test code locally first
-2. Spin up Docker container to verify in isolated environment
-3. Confirm everything works in container
-4. Commit and push clean branch to GitHub
-5. Open PR
+## Hub Repo Map
+- ai-operator-toolkit — THIS repo. Skills and context only. No solutions here.
+- ai-foundry — Where all problems, solutions, and tests live. All coding work happens here.
+- ai-infra-patterns — Docker and GCP deployment patterns. Not active during interviews.
 
-## Superpowers Plugin
-The Superpowers plugin is used to enhance Claude Code capabilities including:
-- Extended context awareness across the Hub repos
-- Personalized skill file loading
-- ELI5 explanation mode
-- TDD enforcement
-- Git workflow automation
-- Docker container management
-Always activate Superpowers at the start of a new session for best results.
-
-## Repo Scope
-This repo is part of a larger system called the Hub which contains:
-- ai-operator-toolkit — this repo, skills and context for Claude Code
-- ai-infra-patterns — local Docker and GCP deployment patterns
-- ai-foundry — where prototyping requests are processed and PRs are created
-
-Only work within the repo I am currently in unless explicitly told otherwise.
-Scope discipline is critical to keeping the Hub clean and organized.
-
-## Goal For This Repo
-Prepare for a technical interview by mirroring my agentic development workflow.
-Be able to solve LeetCode style problems using TDD, clean git history, clear explanation,
-and local Docker containerization before final commit.
+## Goal
+Prepare for and execute technical interviews by running a disciplined, tested, explainable agentic development workflow that Andrew Mason can follow step by step.
