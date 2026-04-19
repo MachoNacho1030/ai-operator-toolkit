@@ -1,5 +1,12 @@
 # Claude Code Context
 
+## Session Rules
+- Do NOT load any external plugins or skills automatically unless explicitly asked
+- The only skills to load are the ones in ai-operator-toolkit/skills/
+- Do not use superpowers brainstorming or any other external plugin
+- Follow the Hub workflow exactly as defined in this repo
+- No improvisation on process — stick to the defined workflow
+
 ## Purpose
 This file gives Claude Code the context it needs to work the way I want it to.
 Read this before doing anything in this repo.
