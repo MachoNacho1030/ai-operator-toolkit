@@ -17,6 +17,20 @@ This ensures all generated code is reliable and verified before use.
 3. Write the implementation to pass the tests
 4. Run the tests and confirm passing
 5. Clean up and commit
+6. Optional: LeetCode Judge Verification
+
+## Optional: LeetCode Judge Verification
+After pytest passes locally, there is an optional final verification step — run the solution on LeetCode to confirm it passes the judge's hidden test cases.
+
+LeetCode requires solutions to be wrapped in a Solution class like this:
+
+```python
+class Solution:
+    def method_name(self, params):
+        # solution code here
+```
+
+Our local solutions are standalone functions. If LeetCode verification is requested, adapt the solution into the LeetCode class format, confirm it passes, then note the result.
 
 ## Test Structure
 - tests/conftest.py — shared fixtures and setup
